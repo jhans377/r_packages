@@ -1,6 +1,6 @@
 #' Takes a dataframe with a control and variant and summarizes proportions form user-inputted variables
 #'
-#' This function allows you to quickly generate summary bayesian statistics, visualize two distributions
+#' 
 #' @param Yes
 #' @keywords ab test, summarise
 #' @export
