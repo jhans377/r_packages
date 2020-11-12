@@ -1,7 +1,7 @@
 
-#' Takes a dataframe with a control and variant and summarizes proportions form user-inputted variables
+#'  Takes summary data from 'summariseMetrics' and generates Bayesiam Summary Statistics.  Output is a clean summary table!
 #'
-#' This function allows you to quickly generate summary bayesian statistics, visualize two distributions
+#' 
 #' @param Yes
 #' @keywords ab test, summarise
 #' @export

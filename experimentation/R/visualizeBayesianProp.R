@@ -1,6 +1,6 @@
-#' Takes a dataframe with a control and variant and summarizes proportions form user-inputted variables
+#' This takes results from summariseMetric and visualizes the metrics within a Bayesian Framework
 #'
-#' This function allows you to quickly generate summary bayesian statistics, visualize two distributions
+#' 
 #' @param Yes
 #' @keywords ab test, summarise
 #' @export
