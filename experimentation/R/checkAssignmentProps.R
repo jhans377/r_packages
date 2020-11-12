@@ -28,10 +28,10 @@ checkAssignmentProps <- function(raw_data,sample_variable,control_value,expected
             prop_control = max(share[segmentation=='control']),
             prop_variant = max(share[segmentation=='variant']))
 
- control_pvalue <- prop.test(data$n_control*data$prop_control, data$n_control, p = expected_control_split, alternative = "two.sided", correct = TRUE)$p.value
- variant_pvalue <- prop.test(data$n_variant*data$prop_variant, data$n_variant, p = 1-expected_control_split, alternative = "two.sided", correct = TRUE)$p.value
+ pvalue_control <- prop.test(data$n_control*data$prop_control, data$n_control, p = expected_control_split, alternative = "two.sided", correct = TRUE)$p.value
+ pvalue_variant <- prop.test(data$n_variant*data$prop_variant, data$n_variant, p = 1-expected_control_split, alternative = "two.sided", correct = TRUE)$p.value
 
- data <- data.frame(data,control_pvalue,variant_pvalue)
+ data <- data.frame(data,pvalue_control,pvalue_variant)
 
  return(data)
 }
