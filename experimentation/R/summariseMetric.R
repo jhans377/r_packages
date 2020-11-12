@@ -9,7 +9,7 @@
 
 library("dplyr")
 
-summarizeMetric <- function(raw_data,variant,numerator,denominator) {
+summariseMetric <- function(raw_data,variant,numerator,denominator) {
 
   numerator = enquo(numerator)
   denominator = enquo(denominator)
