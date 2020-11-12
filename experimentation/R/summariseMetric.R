@@ -9,21 +9,27 @@
 
 library("dplyr")
 
-summariseMetric <- function(raw_data,variant,numerator,denominator) {
+summariseMetric <- function(raw_data,sample_variable,control_value,numerator,denominator) {
 
   numerator = enquo(numerator)
   denominator = enquo(denominator)
-  variant = enquo(variant)
+  sample_variable = enquo(sample_variable)
+
+  ## take segmentation variable and set to control and variant values
+  raw_data <- raw_data %>% mutate(segmentation = ifelse(UQ(sample_variable) == control_value,'control','variant'))
 
  data <- raw_data %>%
-  group_by(UQ(variant)) %>%
-    summarize(obs = n_distinct(id), numerator = n_distinct(id[UQ(numerator)==1]),denominator = n_distinct(id[UQ(denominator)==1])) %>% mutate(rate = numerator/denominator)
+  group_by(segmentation) %>%
+    summarize(obs = n_distinct(id),
+              numerator = n_distinct(id[UQ(numerator)==1]),
+              denominator = n_distinct(id[UQ(denominator)==1])) %>%
+                mutate(rate = numerator/denominator)
 
  data <- data %>%
-  summarise(n_control = max(denominator[sample=='control']),
-            n_variant = max(denominator[sample=='variant']),
-            prop_control = max(rate[sample=='control']),
-            prop_variant = max(rate[sample=='variant']))
+  summarise(n_control = max(denominator[segmentation=='control']),
+            n_variant = max(denominator[segmentation=='variant']),
+            prop_control = max(rate[segmentation=='control']),
+            prop_variant = max(rate[segmentation=='variant']))
 
  return(data)
 }
