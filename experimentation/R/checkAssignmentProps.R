@@ -10,7 +10,7 @@
 
 library("dplyr")
 
-checkAssignmentProps <- function(raw_data,sample_variable,control_value,expected_split) {
+checkAssignmentProps <- function(raw_data,sample_variable,control_value,expected_control_split) {
 
   sample_variable = enquo(sample_variable)
 
@@ -27,6 +27,11 @@ checkAssignmentProps <- function(raw_data,sample_variable,control_value,expected
             n_variant = max(obs[segmentation=='variant']),
             prop_control = max(share[segmentation=='control']),
             prop_variant = max(share[segmentation=='variant']))
+
+ control_pvalue <- prop.test(data$n_control*data$prop_control, data$n_control, p = expected_control_split, alternative = "two.sided", correct = TRUE)$p.value
+ variant_pvalue <- prop.test(data$n_variant*data$prop_variant, data$n_variant, p = 1-expected_control_split, alternative = "two.sided", correct = TRUE)$p.value
+
+ data <- data.frame(data,control_pvalue,variant_pvalue)
 
  return(data)
 }
