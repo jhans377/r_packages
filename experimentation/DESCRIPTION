@@ -5,8 +5,7 @@ Version: 0.1.0
 Author: Josh Hanson
 Maintainer: Josh Hanson <josh@loom.com>
 Depends: R (>= 3.1.0), dplyr, ggplot2, gridExtra, knitr
-Description: This simply takes a raw dataframe and creates metrics to be passed through other tings.
-    As I said, yes.
+Description: This package provides functions I find myself using often for analyzing raw experimentation data.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
