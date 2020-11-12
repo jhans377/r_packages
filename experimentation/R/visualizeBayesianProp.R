@@ -1,6 +1,6 @@
 #' This takes results from summariseMetric and visualizes the metrics within a Bayesian Framework
 #'
-#' 
+#'
 #' @param Yes
 #' @keywords ab test, summarise
 #' @export
@@ -36,10 +36,10 @@ visualizeBayesianProp <- function(data,probability_threshold) {
 
   ## generate view of two distributions compared side by side
   sample1 <- data.frame(value = sample1)
-  sample1$sample <- 'current'
+  sample1$sample <- 'Control'
 
   sample2 <- data.frame(value = sample2)
-  sample2$sample <- 'previous'
+  sample2$sample <- 'Variant'
 
   sample <- rbind(sample1,sample2)
   dist <- ggplot(sample,aes(x=value,fill=sample)) + geom_density(alpha=0.2) + scale_x_continuous(label=scales::percent) + xlab('Range of Possible Values') + theme(legend.position = 'bottom',legend.title=element_blank())
