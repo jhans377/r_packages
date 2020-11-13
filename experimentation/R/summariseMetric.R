@@ -1,35 +1,26 @@
 #' Takes a dataframe with a control and variant and summarizes proportions form user-inputted variables
 #'
-#' 
+#'
 #' @param Yes
 #' @keywords ab test, summarise
 #' @export
 #' @examples
 #' summarize_data()
 
-library("dplyr")
+summariseMetric <- function(metric_data) {
 
-summariseMetric <- function(raw_data,sample_variable,control_value,numerator,denominator) {
-
-  numerator = enquo(numerator)
-  denominator = enquo(denominator)
-  sample_variable = enquo(sample_variable)
-
-  ## take segmentation variable and set to control and variant values
-  raw_data <- raw_data %>% mutate(segmentation = ifelse(UQ(sample_variable) == control_value,'control','variant'))
-
- data <- raw_data %>%
+ summary <- metric_data %>%
   group_by(segmentation) %>%
     summarize(obs = n_distinct(id),
-              numerator = n_distinct(id[UQ(numerator)==1]),
-              denominator = n_distinct(id[UQ(denominator)==1])) %>%
+              numerator = n_distinct(id[numerator==1]),
+              denominator = n_distinct(id[denominator==1])) %>%
                 mutate(rate = numerator/denominator)
 
- data <- data %>%
+ summary <- summary %>%
   summarise(n_control = max(denominator[segmentation=='control']),
             n_variant = max(denominator[segmentation=='variant']),
             prop_control = max(rate[segmentation=='control']),
             prop_variant = max(rate[segmentation=='variant']))
 
- return(data)
+ return(summary)
 }
