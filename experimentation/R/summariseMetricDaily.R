@@ -28,5 +28,7 @@ summariseMetricDaily <- function(metric_data) {
   }
   results <- subset(results,is.na(date) == FALSE)
 
+  results <- results %>% arrange(date)
+
   return(results)
   }
