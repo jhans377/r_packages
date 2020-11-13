@@ -8,7 +8,7 @@
 #' summarize_data()
 
 
-visualizeBayesianProp <- function(daily_bayes) {
+visualizeBayesianPropDaily <- function(daily_bayes) {
 
 control <- daily_bayes %>% select(date,value=rate_control,lower=lower_control,upper=upper_control) %>% mutate(sample = 'control')
 variant <- daily_bayes %>% select(date,value=rate_variant,lower=lower_variant,upper=upper_variant) %>% mutate(sample = 'variant')
