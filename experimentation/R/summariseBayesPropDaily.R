@@ -16,10 +16,9 @@ summariseBayesPropDaily <- function(daily_data,sig_level) {
 
   for (i in unique_days) {
 
-   date_filter <- date(i)
    daily_data$date <- date(daily_data$date)
 
-   temp <- subset(daily_data, date == date_filter)
+   temp <- subset(daily_data, date == i)
    date <- max(temp$date)
 
    temp <- summariseBayesianProp(temp,sig_level)
