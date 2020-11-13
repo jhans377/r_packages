@@ -10,9 +10,6 @@
 
 summariseBayesianProp <- function(data,probability_threshold) {
 
-  data <- test_metric_agg
-  probability_threshold <- .01
-
   ## define inputs for modeling metric with a beta distribution
   trials_control <- data$n_control
   alpha_control <- round(data$n_control*data$prop_control,digits=0)
@@ -38,13 +35,19 @@ summariseBayesianProp <- function(data,probability_threshold) {
   rate_variant_clean <- paste(round(rate_variant*100,digits=2),'%',sep='')
   delta_clean <- paste(round(delta*100,digits=2),'%',sep='')
 
-  lower_control <- paste(round(quantile(sample_control,0.025)*100,digits=2),'%',sep='')
-  upper_control <- paste(round(quantile(sample_control,0.975)*100,digits=2),'%',sep='')
-  ci_control <- paste(lower_control,', ',upper_control,sep='')
+  lower_control <- quantile(sample_control,0.025)
+  upper_control <- quantile(sample_control,0.975)
 
-  lower_variant <- paste(round(quantile(sample_variant,0.025)*100,digits=2),'%',sep='')
-  upper_variant <- paste(round(quantile(sample_variant,0.975)*100,digits=2),'%',sep='')
-  ci_variant <- paste(lower_variant,', ',upper_variant,sep='')
+  lower_control_clean <- paste(round(lower_control*100,digits=2),'%',sep='')
+  upper_control_clean <- paste(round(upper_control*100,digits=2),'%',sep='')
+  ci_control <- paste(lower_control_clean,', ',upper_control_clean,sep='')
+
+  lower_variant <- quantile(sample_variant,0.025)
+  upper_variant <- quantile(sample_variant,0.975)
+
+  lower_variant_clean <- paste(round(lower_variant*100,digits=2),'%',sep='')
+  upper_variant_clean <- paste(round(upper_variant*100,digits=2),'%',sep='')
+  ci_variant <- paste(lower_variant_clean,', ',upper_variant_clean,sep='')
 
   ## how many times within the 1 million draws did we see sample 1 have a value greater than sample 2?
   prob <- sum(sample_control >= sample_variant)/trials
@@ -69,13 +72,17 @@ summariseBayesianProp <- function(data,probability_threshold) {
   sample <- data.frame(prop1 = sample_control, prop2 = sample_variant)
   sample <- sample %>% mutate(diff = (sample_control/sample_variant)-1)
 
-  lower_diff <- paste(round(quantile(sample$diff,0.025)*100,digits=2),'%',sep='')
-  upper_diff <- paste(round(quantile(sample$diff,0.975)*100,digits=2),'%',sep='')
+  median_diff <- quantile(sample$diff,0.5)
+  lower_diff <- quantile(sample$diff,0.025)
+  upper_diff <- quantile(sample$diff,0.975)
 
-  ci_diff <- paste(lower_diff,', ',upper_diff,sep='')
+  lower_diff_clean <- paste(round(lower_diff*100,digits=2),'%',sep='')
+  upper_diff_clean <- paste(round(upper_diff*100,digits=2),'%',sep='')
+
+  ci_diff <- paste(lower_diff_clean,', ',upper_diff_clean,sep='')
 
   ## combine stats into summary dataframe
-  results <- data.frame(rate_control_clean,rate_variant_clean,delta_clean,prob_clean,prob025_clean,prob05_clean,prob1_clean,ci_control,ci_variant,ci_diff,finding,finding025,finding05,finding1,rate_control,rate_variant,delta,prob,prob025,prob05,prob1,trials_control,trials_variant)
+  results <- data.frame(rate_control_clean,rate_variant_clean,delta_clean,prob_clean,prob025_clean,prob05_clean,prob1_clean,ci_control,ci_variant,ci_diff,finding,finding025,finding05,finding1,rate_control,rate_variant,delta,median_diff,lower_diff,upper_diff,prob,prob025,prob05,prob1,trials_control,trials_variant,lower_control,upper_control,lower_variant,upper_variant)
 
   return(results)
 }

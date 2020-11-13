@@ -10,23 +10,25 @@
 
 summariseBayesPropDaily <- function(daily_data,sig_level) {
 
-unique_days <- unique(daily_data$date)
+  unique_days <- unique(daily_data$date)
 
-results <- NA
+  results <- NA
 
-for (i in unique_days) {
+  for (i in unique_days) {
 
- date_filter <- as_datetime(i)
+   date_filter <- date(i)
 
- temp <- daily_data %>% filter(date(date) <= date(date_filter))
- date <- max(temp$date)
+   temp <- daily_data %>% filter(date(date) == date(date_filter))
+   date <- max(temp$date)
 
- temp <- summariseBayesianProp(temp,sig_level)
- temp <- data.frame(date,temp)
+   temp <- summariseBayesianProp(temp,sig_level)
+   temp <- data.frame(date,temp)
 
- results <- rbind(results,temp)
-}
-results <- subset(results,is.na(date) == FALSE)
+   results <- rbind(temp,results)
+  }
+  results <- subset(results,is.na(date) == FALSE)
 
-return(results)
-}
+  results <- results %>% arrange(date)
+
+  return(results)
+  }
