@@ -20,7 +20,7 @@ checkAssignmentProps <- function(raw_data,id_variable,sample_variable,control_va
 
  data <- raw_data %>%
   group_by(segmentation) %>%
-    summarize(obs = n_distinct(UQ(id_variable))) %>%
+    summarize(obs = n()) %>%
       mutate(share = obs/sum(obs))
 
  data <- data %>%
