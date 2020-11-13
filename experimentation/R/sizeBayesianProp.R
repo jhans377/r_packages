@@ -8,8 +8,6 @@
 #' @examples
 #' summarize_data()
 
-library("dplyr")
-
 sizeBayesianProp <- function(baseline,min_delta,max_delta,incremental_differences,n_per_day,sample_split,max_days,day_increments,min_effect_desized) {
 
   ## ## create skeleton frame for visuals

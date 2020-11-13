@@ -7,8 +7,6 @@
 #' @examples
 #' summarize_data()
 
-library("dplyr")
-library("ggplot2")
 
 visualizeBayesianProp <- function(data) {
 

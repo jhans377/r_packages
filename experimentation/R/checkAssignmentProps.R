@@ -8,8 +8,6 @@
 #' @examples
 #' summarize_data()
 
-library("dplyr")
-
 checkAssignmentProps <- function(raw_data,sample_variable,control_value,expected_control_split) {
 
   sample_variable = enquo(sample_variable)

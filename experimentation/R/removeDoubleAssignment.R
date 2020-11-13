@@ -8,8 +8,6 @@
 #' @examples
 #' summarize_data()
 
-library("dplyr")
-
 removeDoubleAssignment <- function(raw_data,id_variable,sample_variable,control_value) {
 
   sample_variable = enquo(sample_variable)
