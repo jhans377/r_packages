@@ -13,10 +13,10 @@ summariseMetric <- function(metric_data) {
   group_by(segmentation) %>%
     summarize(obs = n_distinct(id),
               numerator = n_distinct(id[numerator==1]),
-              denominator = n_distinct(id[denominator==1])) %>%
+              denominator = n_distinct(id[denominator==1])) %>% ungroup() %>%
                 mutate(rate = numerator/denominator)
 
- summary <- summary %>%
+ summary <- summary %>% ungroup() %>%
   summarise(n_control = max(denominator[segmentation=='control']),
             n_variant = max(denominator[segmentation=='variant']),
             prop_control = max(rate[segmentation=='control']),

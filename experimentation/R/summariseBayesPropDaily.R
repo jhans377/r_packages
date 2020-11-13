@@ -10,7 +10,7 @@
 
 summariseBayesPropDaily <- function(daily_data,sig_level) {
 
-  unique_days <- unique(daily_data$date)
+  unique_days <- date(unique(daily_data$date))
 
   results <- NA
 
