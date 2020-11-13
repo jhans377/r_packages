@@ -1,4 +1,4 @@
-#' Takes a dataframe with a control and variant and summarizes proportions form user-inputted variables
+#' Takes a metric dataframe and summarizes it on a cumulative, daily level
 #'
 #'
 #' @param Yes
@@ -8,7 +8,6 @@
 #' summarize_data()
 
 summariseMetricDaily <- function(metric_data) {
-
 
   unique_days <- unique(metric_data$date)
 
