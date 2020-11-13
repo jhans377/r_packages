@@ -15,9 +15,9 @@ variant <- daily_bayes %>% select(date,value=rate_variant,lower=lower_variant,up
 
 sample <- rbind(control,variant)
 
-view1 <- ggplot(sample,aes(x=date(date),y=value,colour=sample,group=sample)) + geom_line() + geom_ribbon(aes(ymin=lower,ymax=upper),colour='grey',alpha=0.2) + scale_y_continuous(label=scales::percent) + theme(legend.position='bottom',legend.title=element_blank()) + ylab('Proportion') + xlab('Day of Experiment')
+view1 <- ggplot(sample,aes(x=date(date),y=value,colour=sample,group=sample)) + geom_line() + geom_ribbon(aes(ymin=lower,ymax=upper),colour='grey',alpha=0.2) + scale_y_continuous(label=scales::percent) + theme(legend.position='bottom',legend.title=element_blank()) + ylab('Proportion') + xlab('Day of Experiment') + ggtitle('Daily Estimate for Proportion with Credible Intervals')
 
-view2 <- ggplot(daily_bayes,aes(x=date(date),y=median_diff,group=1)) + geom_line() + geom_ribbon(aes(ymin=lower_diff,ymax=upper_diff),colour='grey',alpha=0.2) + scale_y_continuous(label=scales::percent) + theme(legend.position='bottom',legend.title=element_blank()) + ylab('Estimated Delta') + xlab('Day of Experiment') + geom_hline(yintercept=0,linetype='dashed',colour='red')
+view2 <- ggplot(daily_bayes,aes(x=date(date),y=median_diff,group=1)) + geom_line() + geom_ribbon(aes(ymin=lower_diff,ymax=upper_diff),colour='grey',alpha=0.2) + scale_y_continuous(label=scales::percent) + theme(legend.position='bottom',legend.title=element_blank()) + ylab('Estimated Delta') + xlab('Day of Experiment') + geom_hline(yintercept=0,linetype='dashed',colour='red') + ggtitle('Daily Estimate for Delta with Credible Intervals')
 
 view <- grid.arrange(view1,view2)
 
