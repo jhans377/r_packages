@@ -18,12 +18,12 @@ checkDoubleAssignment <- function(raw_data,id_variable,sample_variable,control_v
   ## take segmentation variable and set to control and variant values
  raw_data <- raw_data %>% mutate(segmentation = ifelse(UQ(sample_variable) == control_value,'control','variant'))
 
- data <- raw_data %>%
+ double_assignments <- raw_data %>%
   group_by(UQ(id_variable)) %>%
-    summarize(obs = n()) %>%
-      mutate(double_assignment_status = case_when(obs > 1 ~ 'multiple obs',obs == 1 ~ 'one obs')) %>%
+    summarize(unique_segments = n_distinct(UQ(sample_variable))) %>%
+      mutate(double_assignment_status = case_when(unique_segments > 1 ~ 'multiple variations',unique_segments == 1 ~ 'one variation')) %>%
         group_by(double_assignment_status) %>% summarise(obs = n()) %>% mutate(obs_share = obs/sum(obs))
 
 
- return(data) ## return duplicate summary
+ return(double_assignments) ## return duplicate summary
 }
