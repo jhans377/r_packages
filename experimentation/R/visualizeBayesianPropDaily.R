@@ -23,4 +23,3 @@ view <- grid.arrange(view1,view2)
 
 return(view)
 }
-visualizeBayesianProp(bayes)
