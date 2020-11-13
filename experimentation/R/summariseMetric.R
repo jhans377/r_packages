@@ -5,7 +5,7 @@
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' summariseMetric(test_metric)
 
 summariseMetric <- function(metric_data) {
 

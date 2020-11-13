@@ -10,7 +10,7 @@ summariseBayesianProp(data, probability_threshold)
 Takes summary data from 'summariseMetrics' and generates Bayesiam Summary Statistics.  Output is a clean summary table!
 }
 \examples{
-summarize_data()
+summariseBayesianProp(test_metric_agg,.01)
 }
 \keyword{ab}
 \keyword{summarise}

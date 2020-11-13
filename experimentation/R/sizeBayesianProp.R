@@ -6,7 +6,7 @@
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' sizeBayesianProp()
 
 sizeBayesianProp <- function(baseline,min_delta,max_delta,incremental_differences,n_per_day,sample_split,max_days,day_increments,min_effect_desized) {
 

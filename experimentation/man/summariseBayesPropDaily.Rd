@@ -10,7 +10,7 @@ summariseBayesPropDaily(daily_data, sig_level)
 Takes raw data a constructs a daily time series from the date
 }
 \examples{
-summarize_data()
+summariseBayesPropDaily()
 }
 \keyword{ab}
 \keyword{summarise}

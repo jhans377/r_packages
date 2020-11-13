@@ -6,7 +6,7 @@
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' summariseBayesianProp(test_metric_agg,.01)
 
 summariseBayesianProp <- function(data,probability_threshold) {
 

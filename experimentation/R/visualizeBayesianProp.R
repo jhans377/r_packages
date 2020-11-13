@@ -5,7 +5,7 @@
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' visualizeBayesianProp(test_metric_agg)
 
 
 visualizeBayesianProp <- function(data) {

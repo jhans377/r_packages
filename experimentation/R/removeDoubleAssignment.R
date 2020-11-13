@@ -1,12 +1,12 @@
 
-#'  Check if one user has multiple variation assignments within data
+#'  remove any users with double assignment events from experiment data
 #'
 #'
 #' @param Yes
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' removeDoubleAssignment(raw_test_data,user_id,sample,'is control')
 
 removeDoubleAssignment <- function(raw_data,id_variable,sample_variable,control_value) {
 

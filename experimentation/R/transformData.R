@@ -1,5 +1,5 @@
 
-#'  Takes raw experiment data and transforms it into a format that can easily pass through all of the other functions
+#'  Takes raw experiment data and transforms it into a format that can easily pass through all of the other functions downstream
 #'
 #'
 #' @param Yes

@@ -6,7 +6,7 @@
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' checkAssignmentProps(raw_test_data,sample,'is control',.5)
 
 checkAssignmentProps <- function(raw_data,sample_variable,control_value,expected_control_split) {
 

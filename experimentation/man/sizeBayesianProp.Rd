@@ -22,7 +22,7 @@ takes a few inputs and returns a data.frame with various bayesian summary statis
 and experiment run times
 }
 \examples{
-summarize_data()
+sizeBayesianProp()
 }
 \keyword{ab}
 \keyword{summarise}

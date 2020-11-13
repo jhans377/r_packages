@@ -1,11 +1,11 @@
-#' This takes results from summariseMetric and visualizes the metrics within a Bayesian Framework
+#' This takes results from summariseMetricDaily and generates time-series view with cumulative daily totals and credible intervals.
 #'
 #'
 #' @param Yes
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' visualizeBayesianPropDaily(bayes_daily)
 
 
 visualizeBayesianPropDaily <- function(daily_bayes) {

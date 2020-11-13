@@ -10,7 +10,7 @@ checkUniqueness(raw_data, id_variable)
 Check if one test subject has multiple observations within the data
 }
 \examples{
-summarize_data()
+checkUniqueness(raw_test_data,user_id)
 }
 \keyword{ab}
 \keyword{summarise}

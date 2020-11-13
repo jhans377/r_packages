@@ -6,7 +6,7 @@
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' summariseBayesPropDaily()
 
 summariseBayesPropDaily <- function(daily_data,sig_level) {
 

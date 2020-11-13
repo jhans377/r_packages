@@ -2,15 +2,15 @@
 % Please edit documentation in R/checkDoubleAssignment.R
 \name{checkDoubleAssignment}
 \alias{checkDoubleAssignment}
-\title{Check if one user has multiple assignments across variations}
+\title{Check if one user has multiple assignment events across variations}
 \usage{
 checkDoubleAssignment(raw_data, id_variable, sample_variable, control_value)
 }
 \description{
-Check if one user has multiple assignments across variations
+Check if one user has multiple assignment events across variations
 }
 \examples{
-summarize_data()
+checkDoubleAssignment(raw_test_data,user_id,sample,'is control')
 }
 \keyword{ab}
 \keyword{summarise}

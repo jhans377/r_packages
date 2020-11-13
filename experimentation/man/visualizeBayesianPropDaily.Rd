@@ -2,15 +2,15 @@
 % Please edit documentation in R/visualizeBayesianPropDaily.R
 \name{visualizeBayesianPropDaily}
 \alias{visualizeBayesianPropDaily}
-\title{This takes results from summariseMetric and visualizes the metrics within a Bayesian Framework}
+\title{This takes results from summariseMetricDaily and generates time-series view with cumulative daily totals and credible intervals.}
 \usage{
 visualizeBayesianPropDaily(daily_bayes)
 }
 \description{
-This takes results from summariseMetric and visualizes the metrics within a Bayesian Framework
+This takes results from summariseMetricDaily and generates time-series view with cumulative daily totals and credible intervals.
 }
 \examples{
-summarize_data()
+visualizeBayesianPropDaily(bayes_daily)
 }
 \keyword{ab}
 \keyword{summarise}

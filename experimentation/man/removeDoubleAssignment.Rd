@@ -2,15 +2,15 @@
 % Please edit documentation in R/removeDoubleAssignment.R
 \name{removeDoubleAssignment}
 \alias{removeDoubleAssignment}
-\title{Check if one user has multiple variation assignments within data}
+\title{remove any users with double assignment events from experiment data}
 \usage{
 removeDoubleAssignment(raw_data, id_variable, sample_variable, control_value)
 }
 \description{
-Check if one user has multiple variation assignments within data
+remove any users with double assignment events from experiment data
 }
 \examples{
-summarize_data()
+removeDoubleAssignment(raw_test_data,user_id,sample,'is control')
 }
 \keyword{ab}
 \keyword{summarise}

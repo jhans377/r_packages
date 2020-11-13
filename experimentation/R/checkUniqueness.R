@@ -6,7 +6,7 @@
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' checkUniqueness(raw_test_data,user_id)
 
 checkUniqueness <- function(raw_data,id_variable) {
 

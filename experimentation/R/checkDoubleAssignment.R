@@ -1,12 +1,12 @@
 
-#'  Check if one user has multiple assignments across variations
+#'  Check if one user has multiple assignment events across variations
 #'
 #'
 #' @param Yes
 #' @keywords ab test, summarise
 #' @export
 #' @examples
-#' summarize_data()
+#' checkDoubleAssignment(raw_test_data,user_id,sample,'is control')
 
 checkDoubleAssignment <- function(raw_data,id_variable,sample_variable,control_value) {
 

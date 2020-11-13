@@ -10,7 +10,7 @@ summariseMetricDaily(metric_data)
 Takes a metric dataframe and summarizes it on a cumulative, daily level
 }
 \examples{
-summarize_data()
+summariseMetricDaily(test_metric)
 }
 \keyword{ab}
 \keyword{summarise}

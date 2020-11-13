@@ -2,7 +2,7 @@
 % Please edit documentation in R/transformData.R
 \name{transformData}
 \alias{transformData}
-\title{Takes raw experiment data and transforms it into a format that can easily pass through all of the other functions}
+\title{Takes raw experiment data and transforms it into a format that can easily pass through all of the other functions downstream}
 \usage{
 transformData(
   raw_data,
@@ -15,7 +15,7 @@ transformData(
 )
 }
 \description{
-Takes raw experiment data and transforms it into a format that can easily pass through all of the other functions
+Takes raw experiment data and transforms it into a format that can easily pass through all of the other functions downstream
 }
 \examples{
 transformData(test_data,user_id,value2,value,sample,'is control',date)

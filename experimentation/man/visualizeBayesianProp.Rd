@@ -10,7 +10,7 @@ visualizeBayesianProp(data)
 This takes results from summariseMetric and visualizes the metrics within a Bayesian Framework
 }
 \examples{
-summarize_data()
+visualizeBayesianProp(test_metric_agg)
 }
 \keyword{ab}
 \keyword{summarise}

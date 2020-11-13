@@ -15,7 +15,7 @@ checkAssignmentProps(
 Takes raw data from an experiment and tests the observed assignment splits are as expected
 }
 \examples{
-summarize_data()
+checkAssignmentProps(raw_test_data,sample,'is control',.5)
 }
 \keyword{ab}
 \keyword{summarise}

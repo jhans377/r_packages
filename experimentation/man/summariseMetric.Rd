@@ -10,7 +10,7 @@ summariseMetric(metric_data)
 Takes a dataframe with a control and variant and summarizes proportions form user-inputted variables
 }
 \examples{
-summarize_data()
+summariseMetric(test_metric)
 }
 \keyword{ab}
 \keyword{summarise}
