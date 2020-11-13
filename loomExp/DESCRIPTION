@@ -1,11 +1,11 @@
 Package: loomExp
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Summarise and visualize experimentation metrics
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Josh Hanson
+Maintainer: Josh Hanson <josh@loom.com>
+Depends: R (>= 3.1.0), dplyr, ggplot2, gridExtra, knitr, lubridate, grid
+Description: This package provides functions that allow others to take raw experiment data and easily analyze it on both an aggregate and daily level.  It also includes data QA checks.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
