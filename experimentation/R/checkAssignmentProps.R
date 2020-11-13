@@ -10,16 +10,17 @@
 
 library("dplyr")
 
-checkAssignmentProps <- function(raw_data,sample_variable,control_value,expected_control_split) {
+checkAssignmentProps <- function(raw_data,id_variable,sample_variable,control_value,expected_control_split) {
 
   sample_variable = enquo(sample_variable)
+  id_variable = enquo(id_variable)
 
   ## take segmentation variable and set to control and variant values
   raw_data <- raw_data %>% mutate(segmentation = ifelse(UQ(sample_variable) == control_value,'control','variant'))
 
  data <- raw_data %>%
   group_by(segmentation) %>%
-    summarize(obs = n_distinct(id)) %>%
+    summarize(obs = n_distinct(id_variable)) %>%
       mutate(share = obs/sum(obs))
 
  data <- data %>%
