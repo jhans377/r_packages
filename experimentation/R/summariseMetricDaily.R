@@ -15,9 +15,10 @@ summariseMetricDaily <- function(metric_data) {
 
   for (i in unique_days) {
 
-   date_filter <- as_datetime(i)
+   date_filter <- date(i)
+   metric_data$date <- date(metric_data$date)
 
-   temp <- metric_data %>% filter(date(date) <= date(date_filter))
+   temp <- subset(metric_data, date <= date_filter)
    date <- max(temp$date)
 
    temp <- summariseMetric(temp)
