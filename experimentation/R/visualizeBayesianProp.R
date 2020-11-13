@@ -10,7 +10,7 @@
 library("dplyr")
 library("ggplot2")
 
-visualizeBayesianProp <- function(data,probability_threshold) {
+visualizeBayesianProp <- function(data) {
 
   ## define inputs for modeling metric with a beta distribution
   trials1 <- data$n_control
