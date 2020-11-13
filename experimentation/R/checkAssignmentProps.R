@@ -1,5 +1,5 @@
 
-#'  Takes raw data from an experiment and tests the observed assignment splits to the hypothetical
+#'  Takes raw data from an experiment and tests the observed assignment splits are as expected
 #'
 #'
 #' @param Yes

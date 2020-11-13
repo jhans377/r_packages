@@ -1,5 +1,5 @@
 
-#'  Check if one user has multiple observations within the data
+#'  Check if one user has multiple assignments across variations
 #'
 #'
 #' @param Yes

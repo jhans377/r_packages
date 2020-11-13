@@ -26,5 +26,3 @@ removeDoubleAssignment <- function(raw_data,id_variable,sample_variable,control_
 
  return(raw_data) ## return raw experiment data with double assignments removed
 }
-
-test <- removeDoubleAssignment(raw_test_data,user_id,sample,'is control')
