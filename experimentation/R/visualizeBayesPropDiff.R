@@ -30,7 +30,7 @@ visualizeBayesPropDiff <- function(data) {
   sample <- data.frame(prop1 = sample1, prop2 = sample2)
   sample <- sample %>% mutate(diff = (sample2/sample1)-1)
 
-  diff <- ggplot(sample,aes(x=diff)) + geom_density() + geom_vline(xintercept=0,linetype='dashed',colour='red') + scale_x_continuous(label=scales::percent) + xlab('Range of Possible Deltas')
+  diff <- ggplot(sample,aes(x=diff)) + geom_histogram() + geom_vline(xintercept=0,linetype='dashed',colour='red') + scale_x_continuous(label=scales::percent) + xlab('Range of Possible Deltas')
 
   return(diff)
 }
