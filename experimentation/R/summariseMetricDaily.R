@@ -9,7 +9,7 @@
 
 summariseMetricDaily <- function(metric_data) {
 
-  unique_days <- date(unique(metric_data$date))
+  unique_days <- unique(date(metric_data$date))
 
   results <- NA
 
