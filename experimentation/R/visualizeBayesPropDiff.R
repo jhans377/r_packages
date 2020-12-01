@@ -32,20 +32,5 @@ visualizeBayesPropDiff <- function(data) {
 
   diff <- ggplot(sample,aes(x=diff)) + geom_density() + geom_vline(xintercept=0,linetype='dashed',colour='red') + scale_x_continuous(label=scales::percent) + xlab('Range of Possible Deltas')
 
-  ## generate view of two distributions compared side by side
-  sample1 <- data.frame(value = sample1)
-  sample1$sample <- 'Control'
-
-  sample2 <- data.frame(value = sample2)
-  sample2$sample <- 'Variant'
-
-  sample <- rbind(sample1,sample2)
-  dist <- ggplot(sample,aes(x=value,fill=sample)) + geom_density(alpha=0.2) + scale_x_continuous(label=scales::percent) + xlab('Range of Possible Values') + theme(legend.position = 'bottom',legend.title=element_blank())
-
-  ## combine both vizes together into one
-  viz <- grid.arrange(dist,diff,nrow=2)
-
-  ##return(list(results,viz))
-  ##return(viz)
   return(diff)
 }
