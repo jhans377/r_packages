@@ -8,7 +8,7 @@
 #' visualizeBayesianProp(test_metric_agg)
 
 
-visualizeBayesianProp <- function(data) {
+visualizeBayesPropDist <- function(data) {
 
   ## define inputs for modeling metric with a beta distribution
   trials1 <- data$n_control
