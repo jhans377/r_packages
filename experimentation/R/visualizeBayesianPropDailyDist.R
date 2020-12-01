@@ -10,12 +10,12 @@
 
 visualizeBayesianPropDailyDist <- function(daily_bayes) {
 
-control <- daily_bayes %>% select(date,value=rate_control,lower=lower_control,upper=upper_control) %>% mutate(sample = 'control')
-variant <- daily_bayes %>% select(date,value=rate_variant,lower=lower_variant,upper=upper_variant) %>% mutate(sample = 'variant')
+control <- daily_bayes %>% select(date,value=rate_control,lower=lower_control,upper=upper_control) %>% mutate(sample = 'Control')
+variant <- daily_bayes %>% select(date,value=rate_variant,lower=lower_variant,upper=upper_variant) %>% mutate(sample = 'Variant')
 
 sample <- rbind(control,variant)
 
-view1 <- ggplot(sample,aes(x=date(date),y=value,colour=sample,group=sample)) + geom_line() + geom_ribbon(aes(ymin=lower,ymax=upper),colour='grey',alpha=0.2) + scale_y_continuous(label=scales::percent) + theme(legend.position='bottom',legend.title=element_blank()) + ylab('Proportion') + xlab('Day of Experiment') + ggtitle('Daily Estimate for Proportion with Credible Intervals')
+view1 <- ggplot(sample,aes(x=date(date),y=value,colour=sample,group=sample)) + geom_line(size=1) + geom_ribbon(aes(ymin=lower,ymax=upper,fill=sample),alpha=0.1) + scale_y_continuous(label=scales::percent) + theme(legend.position='bottom',legend.title=element_blank()) + ylab('Proportion') + xlab('Day of Experiment') + ggtitle('Daily Estimate for Proportion with Credible Intervals')
 
 return(view1)
 }
